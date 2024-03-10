@@ -3,11 +3,9 @@ import "./App.css";
 
 function App() {
   return (
-    <body>
+    <>
       <div className="bg">
-        <div className="cloud cloud1"></div>
-        <div className="cloud cloud2"></div>
-        <div className="cloud cloud3"></div>
+        <div className="cloud"></div>
       </div>
       <div className="App">
         <div className="container">
@@ -20,7 +18,7 @@ function App() {
           <button>Check the weather</button>
         </div>
       </div>
-    </body>
+    </>
   );
 }
 

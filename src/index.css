@@ -65,27 +65,32 @@ button {
   height: 100%;
   z-index: -1;
   background: linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%);
-  background-image: url("./assets/long-clouds.png");
-  background-position: 0 0;
-  animation: moveBackground 999s linear infinite;
+
   /*animation: moveClouds 20s linear infinite;*/
+}
+
+.cloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 800px;
+  background-image: url("./assets/long-clouds.png");
+  background-size: cover;
+  background-position: 0 0;
+  animation: moveBackground 30s linear infinite;
 }
 
 @keyframes moveBackground {
   from {
-    background-position: -250% 0;
+    background-position: 0 0;
   }
   to {
     background-position: -1000% 0;
   }
 }
 
-/* .cloud {
-  position: absolute;
-  background-image: url("./assets/clouds.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+/* 
 
 
 .cloud1 {
