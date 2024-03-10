@@ -4,6 +4,8 @@ import App from "./App.tsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+export const apiKey = process.env.WEATHER_API_KEY;
+
 const router = createBrowserRouter([
   {
     path: "/",
