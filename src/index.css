@@ -1,6 +1,7 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
 .App {
   display: flex;
   justify-content: center;
@@ -64,22 +65,35 @@ button {
   height: 100%;
   z-index: -1;
   background: linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%);
-  animation: moveClouds 20s linear infinite;
+  background-image: url("./assets/long-clouds.png");
+  background-position: 0 0;
+  animation: moveBackground 999s linear infinite;
+  /*animation: moveClouds 20s linear infinite;*/
 }
 
-.cloud {
+@keyframes moveBackground {
+  from {
+    background-position: -250% 0;
+  }
+  to {
+    background-position: -1000% 0;
+  }
+}
+
+/* .cloud {
   position: absolute;
   background-image: url("./assets/clouds.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+
 .cloud1 {
-  top: 20%;
-  left: -30%;
+  top: 10%;
+  left: 0%;
   width: 200px;
   height: 100px;
-  animation: moveCloud1 60s linear infinite;
+  animation: moveCloud1 60s linear infinite, fadeIn 7s linear;
 }
 
 .cloud2 {
@@ -125,6 +139,15 @@ button {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -132,4 +155,4 @@ button {
   to {
     opacity: 0;
   }
-}
+}*/
