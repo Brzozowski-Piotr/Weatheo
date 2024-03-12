@@ -7,6 +7,7 @@ function App() {
       <div className="bg">
         <div className="cloud"></div>
       </div>
+
       <div className="App">
         <div className="container">
           <h1>Weatheo</h1>

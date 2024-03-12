@@ -41,11 +41,51 @@ h1 {
 button {
   padding: 16px 35px;
   font-size: 1rem;
-  background-color: #007bff;
+  background-color: #38a3d1;
   color: #fff;
   border: none;
   border-radius: 12px;
   cursor: pointer;
+}
+
+.bg {
+  position: fixed;
+  top: -25vh;
+  left: 0;
+  width: 100vw;
+  height: 125vh;
+  z-index: -1;
+  background: linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%);
+}
+
+.cloud-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  background-image: url("./assets/clouds.png");
+  background-size: cover;
+  background-position: 0 0;
+  animation: moveBackground 120s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200vw 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -56,108 +96,3 @@ button {
     align-items: center;
   }
 }
-
-.bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%);
-
-  /*animation: moveClouds 20s linear infinite;*/
-}
-
-.cloud {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 800px;
-  background-image: url("./assets/long-clouds.png");
-  background-size: cover;
-  background-position: 0 0;
-  animation: moveBackground 30s linear infinite;
-}
-
-@keyframes moveBackground {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -1000% 0;
-  }
-}
-
-/* 
-
-
-.cloud1 {
-  top: 10%;
-  left: 0%;
-  width: 200px;
-  height: 100px;
-  animation: moveCloud1 60s linear infinite, fadeIn 7s linear;
-}
-
-.cloud2 {
-  top: 40%;
-  right: 20%;
-  width: 150px;
-  height: 75px;
-  animation: moveCloud2 25s linear infinite reverse;
-}
-
-.cloud3 {
-  top: 60%;
-  left: 30%;
-  width: 120px;
-  height: 60px;
-  animation: moveCloud3 20s linear infinite;
-}
-
-@keyframes moveCloud1 {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(1000%);
-  }
-}
-
-@keyframes moveCloud2 {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes moveCloud3 {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(100% - 120px));
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}*/
