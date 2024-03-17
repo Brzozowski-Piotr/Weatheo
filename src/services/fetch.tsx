@@ -6,12 +6,12 @@ export const fetchWeatherData = async (place: string) => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`HTTP error occurred ${response.status}`);
+      throw new Error(`HTTP error occurred: ${response.status}`);
     }
     const weatherData = await response.json();
-    return weatherData;
+    return { data: weatherData, error: null }; // Zwracaj dane i brak błędu
   } catch (error) {
     console.error(error.message);
-    return null;
+    return { data: null, error }; // Zwracaj brak danych i błąd
   }
 };

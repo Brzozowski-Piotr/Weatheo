@@ -30,6 +30,19 @@
   border-radius: 8px;
 }
 
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  max-height: 10vh;
+  width: 100%;
+  color: #fff;
+  background-color: red;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
 .logoFullSize {
   font-size: 3.5rem;
   margin-top: 0px;
