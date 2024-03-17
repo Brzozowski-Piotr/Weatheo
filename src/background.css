@@ -22,9 +22,14 @@
 
 @keyframes moveBackground {
   0% {
-    background-position: 0vw 0;
+    background-position: 0 0;
+    opacity: 0%;
+  }
+  6% {
+    opacity: 100%;
   }
   100% {
     background-position: 200vw 0;
+    opacity: 0%;
   }
 }
