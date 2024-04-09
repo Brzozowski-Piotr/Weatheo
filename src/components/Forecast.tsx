@@ -12,13 +12,13 @@ export const Forecast = () => {
               src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
               alt="Icon representing actual weather"
             />
+            <h2 className="temperature">20°C</h2>
             <h1 className="cityName headerText">Gorzów Wielkopolski</h1>
-            <h1 className="temperature headerText">5°C</h1>
           </div>
           <div className="forecastDetails">
-            <span className="details detailsText">Ciśnienie: 1000 hPa</span>
-            <span className="details detailsText">Wiatr: 6km/h</span>
-            <span className="details detailsText">Odczuwalna: 33.5°C</span>
+            <span className="detailsFirst detailsText">{`(-3333.5°C)`}</span>
+            <span className="detailsSecond detailsText">hPa:1000</span>
+            <span className="detailsSecond detailsText">W:300m/s</span>
           </div>
         </div>
         <button className="submitButton">Back</button>

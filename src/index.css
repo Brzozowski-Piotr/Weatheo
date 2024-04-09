@@ -53,18 +53,30 @@
 }
 
 .temperature {
+  position: absolute;
+  margin-top: 85px;
+  min-width: 87px;
   flex-grow: 0;
   flex-shrink: 0;
 }
 
 .forecastDetails {
   display: flex;
-  justify-content: center;
-  margin-top: 5px;
+  justify-content: left;
+  margin-top: 10px;
 }
 
-.details {
-  width: 256px;
+.detailsFirst {
+  width: 5.5rem;
+}
+
+.detailsSecond {
+  width: 13.3rem;
+}
+
+.detailsLast {
+  background-color: green;
+  min-width: 43.33%;
 }
 
 .errorContainer {
