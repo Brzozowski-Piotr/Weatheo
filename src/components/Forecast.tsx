@@ -15,11 +15,21 @@ export const Forecast = () => {
             <h2 className="temperature">20°C</h2>
             <h1 className="cityName headerText">Gorzów Wielkopolski</h1>
           </div>
-          <div className="forecastDetails">
-            <span className="detailsFirst detailsText">{`(-3333.5°C)`}</span>
-            <span className="detailsSecond detailsText">hPa:1000</span>
-            <span className="detailsSecond detailsText">W:300m/s</span>
+          <div className="forecastContainer">
+            <div className="detailsContainer">
+              <span className="detailsText">Feels like:</span>
+              <span className="detailsText">3.5°C</span>
+            </div>
+            <div className="detailsContainer">
+              <span className="detailsText">Pressure:</span>
+              <span className="detailsText">1018 hPa</span>
+            </div>
+            <div className="detailsContainer">
+              <span className="detailsText">Wind:</span>
+              <span className="detailsText">3.5km/h</span>
+            </div>
           </div>
+          <div className="separator"></div>
         </div>
         <button className="submitButton">Back</button>
       </div>

@@ -20,6 +20,11 @@
   border-radius: 8px;
 }
 
+.separator {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 15px 0;
+}
+
 .forecast {
   display: inline;
   align-items: center;
@@ -28,8 +33,9 @@
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
-  backdrop-filter: blur(10px);
+
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -60,23 +66,17 @@
   flex-shrink: 0;
 }
 
-.forecastDetails {
+.forecastContainer {
+  display: flex; /* establish flex container */
+  flex-direction: row; /* default value; can be omitted */
+  flex-wrap: nowrap; /* default value; can be omitted */
+  justify-content: space-between; /* switched from default (flex-start, see below) */
+  margin-top: 12px;
+}
+
+.detailsContainer {
   display: flex;
-  justify-content: left;
-  margin-top: 10px;
-}
-
-.detailsFirst {
-  width: 5.5rem;
-}
-
-.detailsSecond {
-  width: 13.3rem;
-}
-
-.detailsLast {
-  background-color: green;
-  min-width: 43.33%;
+  flex-direction: column;
 }
 
 .errorContainer {
@@ -106,7 +106,7 @@
 
 .detailsText {
   font-size: 1rem;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.7);
   font-weight: 600;
 }
 
@@ -146,9 +146,5 @@ button {
 
   .headerText {
     font-size: 1.5rem;
-  }
-
-  .detailsText {
-    font-size: 1.1rem;
   }
 }
