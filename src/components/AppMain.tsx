@@ -71,7 +71,7 @@ export const AppMain: React.FC<AppMainProps> = ({ setShowForecast }) => {
   return (
     <div className="App">
       <div className="container">
-        <h1 className="logoFullSize">Weatheo</h1>
+        <h1 className="logoStyling logoFullSize">Weatheo</h1>
         {error !== "" ? (
           <div className="errorContainer">
             <span>An error accured: {error}</span>
