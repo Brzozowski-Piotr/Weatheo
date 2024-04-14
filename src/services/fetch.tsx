@@ -1,7 +1,7 @@
 import { apiKey } from "../main";
 
 export const fetchWeatherData = async (place: string) => {
-  const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${place}&aqi=no`;
+  const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${place}&aqi=yes`;
 
   try {
     const response = await fetch(url);

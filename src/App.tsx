@@ -6,14 +6,22 @@ import "./App.css";
 
 function App() {
   const [showForecast, setShowForecast] = useState(false);
+  const [weatherData, setWeatherData] = useState();
   return (
     <>
       <Background />
       {showForecast ? (
-        <Forecast />
+        <Forecast
+          setShowForecast={setShowForecast}
+          setWeatherData={setWeatherData}
+          weatherData={weatherData}
+        />
       ) : (
-        //Passing as a argument update function "setShowForecast" from useState
-        <AppMain setShowForecast={setShowForecast} />
+        //Passing as a argument update function "setShowForecast" from useState and save weather data from fetch
+        <AppMain
+          setShowForecast={setShowForecast}
+          setWeatherData={setWeatherData}
+        />
       )}
     </>
   );

@@ -1,7 +1,25 @@
 import React from "react";
 import "../App.css";
 
-export const Forecast = () => {
+interface ForecastProps {
+  setShowForecast: React.Dispatch<React.SetStateAction<boolean>>;
+  setWeatherData: React.Dispatch<React.SetStateAction<undefined>>;
+  weatherData: object;
+}
+
+export const Forecast: React.FC<ForecastProps> = ({
+  setShowForecast,
+  setWeatherData,
+  weatherData,
+}) => {
+  const HandleBackButtonPress = () => {
+    setWeatherData(undefined);
+    setShowForecast(false);
+  };
+  /*const test = () => {
+    console.log(weatherData);
+  };*/
+
   return (
     <div className="App">
       <div className="container">
@@ -9,50 +27,61 @@ export const Forecast = () => {
         <div className="forecast">
           <div className="forecastHeader">
             <img
-              className="WeatherIconBig"
-              src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
+              className="weatherIconBig"
+              src={weatherData.current.condition.icon}
               alt="Icon representing actual weather"
             />
-            <h2 className="temperature">20°C</h2>
-            <h1 className="cityName headerText">Gorzów Wielkopolski</h1>
+            <h2 className="temperature">{weatherData.current.temp_c}°C</h2>
+            <h1 className="cityName headerText">{weatherData.location.name}</h1>
           </div>
           <div className="forecastContainer">
             <div className="detailsContainer">
               <span className="secondTextBoldDimmed">Feels like:</span>
-              <span className="secondTextBoldDimmed">3.5°C</span>
+              <span className="secondTextBoldDimmed">
+                {weatherData.current.feelslike_c}°C
+              </span>
             </div>
             <div className="detailsContainer">
               <span className="secondTextBoldDimmed">Pressure:</span>
-              <span className="secondTextBoldDimmed">1018 hPa</span>
+              <span className="secondTextBoldDimmed">
+                {weatherData.current.pressure_mb}hPa
+              </span>
             </div>
             <div className="detailsContainer">
               <span className="secondTextBoldDimmed">Wind:</span>
-              <span className="secondTextBoldDimmed">3.5km/h</span>
+              <span className="secondTextBoldDimmed">
+                {weatherData.current.wind_kph}km/h
+              </span>
             </div>
           </div>
-          <div className="separator"></div>
+          <div className="divider"></div>
           <div className="forecastText">
             <span className="secondTextBoldDimmed">
               Forecast for next 3 days:
             </span>
           </div>
-          <div className="prognosisContainer">
+          <div className="forecastContainer">
             <div>
               <span className="secondTextBold">Monday</span>
             </div>
             <div className="prognosisIconContainer">
               <img
-                className="WeatherIconSmall"
+                className="weatherIconSmall"
                 src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
                 alt="Icon representing weather for next 3 days"
               />
             </div>
             <div>
-              <span>2°C - 4°C</span>
+              <span className="secondTextBold">2°C - 4°C</span>
             </div>
           </div>
         </div>
-        <button className="submitButton">Back</button>
+        <button className="submitButton" onClick={HandleBackButtonPress}>
+          Back
+        </button>
+        {/*<button className="submitButton" onClick={test}>
+          Test
+  </button>*/}
       </div>
     </div>
   );

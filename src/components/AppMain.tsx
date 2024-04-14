@@ -9,9 +9,13 @@ with clouds/stars to start from beginnning when we move between pages.*/
 /* This issue come from react nature of unmount and mount components, when this happend the animation "resets"*/
 interface AppMainProps {
   setShowForecast: React.Dispatch<React.SetStateAction<boolean>>;
+  setWeatherData: React.Dispatch<React.SetStateAction<undefined>>;
 }
 //Pasing as a argument updating function "setShowForecast" from useState in App.tsx
-export const AppMain: React.FC<AppMainProps> = ({ setShowForecast }) => {
+export const AppMain: React.FC<AppMainProps> = ({
+  setShowForecast,
+  setWeatherData,
+}) => {
   const [placeValue, setPlaceValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -50,6 +54,7 @@ export const AppMain: React.FC<AppMainProps> = ({ setShowForecast }) => {
         }
         //When everything go well fetched data been showed
         console.log("Fetched data succesfully", data.data);
+        setWeatherData(data.data); //Set data provided from fetch to variable
         setIsLoading(false); // Set loading to false after fetching
         setShowForecast(true); //Set showForecast to true to show component "<Forecast />"" in App.tsx
       })
