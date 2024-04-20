@@ -4,7 +4,7 @@ import "../App.css";
 interface ForecastProps {
   setShowForecast: React.Dispatch<React.SetStateAction<boolean>>;
   setWeatherData: React.Dispatch<React.SetStateAction<undefined>>;
-  weatherData: object;
+  weatherData: undefined;
 }
 
 export const Forecast: React.FC<ForecastProps> = ({
@@ -32,9 +32,11 @@ export const Forecast: React.FC<ForecastProps> = ({
               alt="Icon representing actual weather"
             />
             <h2 className="temperature">{weatherData.current.temp_c}°C</h2>
-            <h1 className="cityName headerText">{weatherData.location.name}</h1>
+            <div className="cityNameContainer">
+              <h1 className="cityName">{weatherData.location.name}</h1>
+            </div>
           </div>
-          <div className="forecastContainer">
+          <div className="rowContainer rowDetailsMargin">
             <div className="detailsContainer">
               <span className="secondTextBoldDimmed">Feels like:</span>
               <span className="secondTextBoldDimmed">
@@ -60,7 +62,7 @@ export const Forecast: React.FC<ForecastProps> = ({
               Forecast for next 3 days:
             </span>
           </div>
-          <div className="forecastContainer">
+          <div className="rowContainer rowForecastMargin">
             <div>
               <span className="secondTextBold">Monday</span>
             </div>

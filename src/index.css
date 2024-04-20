@@ -45,11 +45,18 @@
   width: 100%;
 }
 
-.forecastContainer {
+.rowContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+}
+
+.rowDetailsMargin {
+  margin-top: 35px;
+}
+
+.rowForecastMargin {
   margin-top: 24px;
 }
 
@@ -70,10 +77,16 @@
 }
 
 .cityName {
-  flex-grow: 1;
-  overflow-wrap: anywhere;
+  font-size: 2rem;
 }
 
+.cityNameContainer {
+  position: absolute;
+
+  width: 100%;
+  height: 20%;
+  align-items: flex-start; /* dodaj ta linijkę */
+}
 .temperature {
   position: absolute;
   margin-top: 110px;
@@ -175,5 +188,14 @@ button {
 
   .headerText {
     font-size: 1.5rem;
+  }
+
+  .cityNameContainer {
+    position: relative;
+    width: 80%;
+  }
+
+  .cityName {
+    font-size: 1.6rem;
   }
 }
