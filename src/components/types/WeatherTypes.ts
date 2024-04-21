@@ -10,10 +10,10 @@ export interface Location {
 }
 
 export interface Condition {
+  text: string;
   icon: string;
   code: number;
 }
-
 export interface Current {
   temp_c: number;
   condition: Condition;
@@ -22,7 +22,23 @@ export interface Current {
   feelslike_c: number;
 }
 
+export interface Day {
+  mintemp_c: number;
+  maxtemp_c: number;
+  condition: Condition;
+}
+
+export interface ForecastDay {
+  date: string;
+  day: Day;
+}
+
+export interface Forecast {
+  forecastday: ForecastDay[];
+}
+
 export interface WeatherData {
   location: Location;
   current: Current;
+  forecast: Forecast;
 }

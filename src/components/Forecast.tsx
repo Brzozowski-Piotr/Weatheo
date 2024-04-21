@@ -18,6 +18,11 @@ export const Forecast: React.FC<ForecastProps> = ({
     setShowForecast(false);
   };
 
+  const getDayOfWeek = (dateString: string) => {
+    const dateObj = new Date(dateString);
+    return dateObj.toLocaleDateString("en-US", { weekday: "long" });
+  };
+
   return (
     <div className="App">
       <div className="container">
@@ -27,7 +32,7 @@ export const Forecast: React.FC<ForecastProps> = ({
             <img
               className="weatherIconBig"
               src={weatherData.current.condition.icon}
-              alt="Icon representing actual weather"
+              alt={`The weather for today appears to be ${weatherData.current.condition.text}`}
             />
             <h2 className="temperature">{weatherData.current.temp_c}°C</h2>
             <div className="cityNameContainer">
@@ -57,24 +62,34 @@ export const Forecast: React.FC<ForecastProps> = ({
           <div className="divider"></div>
           <div className="forecastText">
             <span className="secondTextBoldDimmed">
-              Forecast for next 3 days:
+              Forecast for next 2 days:
             </span>
           </div>
-          <div className="rowContainer rowForecastMargin">
-            <div>
-              <span className="secondTextBold">Monday</span>
+          {/* Used slice to skip first array on object forecastday bcs he contains current weather data not for next day */}
+          {weatherData.forecast.forecastday.slice(1).map((forecast, index) => (
+            <div key={index} className="rowContainer rowForecastMargin">
+              <div>
+                <span className="secondTextBold">
+                  {getDayOfWeek(forecast.date)}
+                </span>
+              </div>
+              <div className="prognosisIconContainer">
+                <img
+                  className="weatherIconSmall"
+                  src={forecast.day.condition.icon}
+                  alt={`The weather for ${getDayOfWeek(
+                    forecast.date
+                  )} appears to be ${forecast.day.condition.text}`}
+                />
+              </div>
+              <div>
+                <span className="secondTextBold">
+                  {forecast.day.mintemp_c.toFixed(0)}°C -
+                  {forecast.day.maxtemp_c.toFixed(0)}°C
+                </span>
+              </div>
             </div>
-            <div className="prognosisIconContainer">
-              <img
-                className="weatherIconSmall"
-                src="https://cdn.weatherapi.com/weather/64x64/night/116.png"
-                alt="Icon representing weather for next 3 days"
-              />
-            </div>
-            <div>
-              <span className="secondTextBold">2°C - 4°C</span>
-            </div>
-          </div>
+          ))}
         </div>
         <button className="button submitButton" onClick={HandleBackButtonPress}>
           Back

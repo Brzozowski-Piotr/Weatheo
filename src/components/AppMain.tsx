@@ -64,6 +64,7 @@ export const AppMain: React.FC<AppMainProps> = ({
         }
         // When everything go well fetched data been showed
         console.log("Fetched data succesfully", data.data);
+        //console.log(data.data.forecast.forecastday[0]);
         setWeatherData(data.data); //Set data provided from fetch to variable
         setIsLoading(false); // Set loading to false after fetching
         setShowForecast(true); //Set showForecast to true to show component "<Forecast />"" in App.tsx
