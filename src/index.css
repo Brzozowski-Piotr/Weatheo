@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: flex-start;
   min-height: 85vh;
+  width: 100%;
   font-family: Arial, sans-serif;
 }
 
@@ -15,9 +16,17 @@
   flex-direction: column;
   align-items: center;
   max-width: 500px;
-  width: 90%;
+  width: 100%;
   padding: 20px;
   border-radius: 8px;
+}
+
+.inputContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .divider {
@@ -82,10 +91,9 @@
 
 .cityNameContainer {
   position: absolute;
-
-  width: 100%;
+  width: 94%;
   height: 20%;
-  align-items: flex-start; /* dodaj ta linijkę */
+  align-items: flex-start;
 }
 .temperature {
   position: absolute;
@@ -153,22 +161,29 @@
 }
 
 .searchBox {
-  width: 100%;
+  flex: 1;
   padding: 15px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 12px;
-  margin-top: 10px;
-  margin-bottom: 30px;
 }
 
-button {
+.button {
   padding: 16px 35px;
   font-size: 1rem;
   border: none;
   border-radius: 12px;
 }
+.getLocationButton {
+  padding: 16px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  margin-left: 5px;
+  background-color: #38a3d1;
 
+  cursor: pointer;
+}
 .submitButton {
   color: #fff;
   background-color: #38a3d1;
@@ -186,13 +201,26 @@ button {
     align-items: center;
   }
 
+  /*.inputContainer {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .getLocationButton {
+    margin-top: 15px;
+    margin-left: 0px;
+  }*/
+
   .headerText {
     font-size: 1.5rem;
   }
 
   .cityNameContainer {
     position: relative;
-    width: 80%;
+    width: 70%;
+  }
+
+  .button {
+    width: 100%;
   }
 
   .cityName {

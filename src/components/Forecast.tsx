@@ -1,10 +1,11 @@
 import React from "react";
+import { WeatherData } from "./types/WeatherTypes";
 import "../App.css";
 
 interface ForecastProps {
   setShowForecast: React.Dispatch<React.SetStateAction<boolean>>;
   setWeatherData: React.Dispatch<React.SetStateAction<undefined>>;
-  weatherData: undefined;
+  weatherData: WeatherData;
 }
 
 export const Forecast: React.FC<ForecastProps> = ({
@@ -16,9 +17,6 @@ export const Forecast: React.FC<ForecastProps> = ({
     setWeatherData(undefined);
     setShowForecast(false);
   };
-  /*const test = () => {
-    console.log(weatherData);
-  };*/
 
   return (
     <div className="App">
@@ -78,12 +76,9 @@ export const Forecast: React.FC<ForecastProps> = ({
             </div>
           </div>
         </div>
-        <button className="submitButton" onClick={HandleBackButtonPress}>
+        <button className="button submitButton" onClick={HandleBackButtonPress}>
           Back
         </button>
-        {/*<button className="submitButton" onClick={test}>
-          Test
-  </button>*/}
       </div>
     </div>
   );
