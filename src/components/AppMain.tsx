@@ -1,13 +1,15 @@
 import { ChangeEvent, useState } from "react";
 import { fetchWeatherData } from "../services/fetch";
 import { getUserLocation } from "../services/geolocation";
+import { autofill } from "../services/autofill";
+import { AutoFillItem } from "./types/WeatherTypes";
 
 // Interface used to update showForecast useState in App.tsx to change displayed component
 
 /* Doing this way beacause is the easiest solution that comes to my head to prevent css animation 
 with clouds/stars to start from beginnning when we move between pages.*/
 
-/* This issue come from react nature of unmount and mount components, when this happend the animation "resets"*/
+// This issue come from react nature of unmount and mount components, when this happend the animation "resets"
 interface AppMainProps {
   setShowForecast: React.Dispatch<React.SetStateAction<boolean>>;
   setWeatherData: React.Dispatch<React.SetStateAction<undefined>>;
@@ -19,7 +21,13 @@ export const AppMain: React.FC<AppMainProps> = ({
 }) => {
   const [placeValue, setPlaceValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [autoFillVisable, setIsAutoFillVisable] = useState(false);
+  const [autoFill, setAutoFill] = useState(Object);
   const [error, setError] = useState("");
+
+  const handleClick = () => {
+    setIsAutoFillVisable(false);
+  };
 
   const handleGetLocationButtonClick = async () => {
     try {
@@ -28,6 +36,12 @@ export const AppMain: React.FC<AppMainProps> = ({
     } catch (error) {
       setError(error.message);
     }
+  };
+
+  const handleAutoFillClick = (autofill: string) => {
+    setPlaceValue(autofill);
+    setIsAutoFillVisable(false);
+    setAutoFill(null);
   };
 
   const handleWeatherFetch = (place: string) => {
@@ -64,7 +78,6 @@ export const AppMain: React.FC<AppMainProps> = ({
         }
         // When everything go well fetched data been showed
         console.log("Fetched data succesfully", data.data);
-        //console.log(data.data.forecast.forecastday[0]);
         setWeatherData(data.data); //Set data provided from fetch to variable
         setIsLoading(false); // Set loading to false after fetching
         setShowForecast(true); //Set showForecast to true to show component "<Forecast />"" in App.tsx
@@ -82,10 +95,24 @@ export const AppMain: React.FC<AppMainProps> = ({
     const value = e.target.value;
     setPlaceValue(value);
     setError("");
+    if (value.length >= 3) {
+      autofill(value).then((data) => {
+        if (!data) {
+          setIsAutoFillVisable(false);
+          setAutoFill(null);
+          console.log(value);
+        } else if (data.data.length > 0) {
+          console.log(value);
+          setIsAutoFillVisable(true);
+          setAutoFill(data);
+          console.log(autoFill.data);
+        }
+      });
+    }
   };
 
   return (
-    <div className="App">
+    <div className="App" onClick={handleClick}>
       <div className="container">
         <h1 className="logoStyling logoFullSize">Weatheo</h1>
         {error !== "" ? (
@@ -111,6 +138,7 @@ export const AppMain: React.FC<AppMainProps> = ({
             📍
           </button>
         </div>
+
         {isLoading ? (
           <button className="button loadingButton" disabled={true}>
             Checking...
@@ -123,6 +151,24 @@ export const AppMain: React.FC<AppMainProps> = ({
             Check the weather
           </button>
         )}
+        {autoFillVisable ? (
+          <div className="autofillContainer">
+            <div className="autofill">
+              <ul>
+                {autoFill.data.map(
+                  (autofillitem: AutoFillItem, index: number) => (
+                    <li
+                      key={index}
+                      onClick={() => handleAutoFillClick(autofillitem.name)}
+                    >
+                      {autofillitem.name}
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );

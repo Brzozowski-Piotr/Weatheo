@@ -34,7 +34,9 @@ export const Forecast: React.FC<ForecastProps> = ({
               src={weatherData.current.condition.icon}
               alt={`The weather for today appears to be ${weatherData.current.condition.text}`}
             />
-            <h2 className="temperature">{weatherData.current.temp_c}°C</h2>
+            <h2 className="temperature">
+              {weatherData.current.temp_c.toFixed(0)}°C
+            </h2>
             <div className="cityNameContainer">
               <h1 className="cityName">{weatherData.location.name}</h1>
             </div>
@@ -43,7 +45,7 @@ export const Forecast: React.FC<ForecastProps> = ({
             <div className="detailsContainer">
               <span className="secondTextBoldDimmed">Feels like:</span>
               <span className="secondTextBoldDimmed">
-                {weatherData.current.feelslike_c}°C
+                {weatherData.current.feelslike_c.toFixed(0)}°C
               </span>
             </div>
             <div className="detailsContainer">
@@ -84,7 +86,7 @@ export const Forecast: React.FC<ForecastProps> = ({
               </div>
               <div>
                 <span className="secondTextBold">
-                  {forecast.day.mintemp_c.toFixed(0)}°C -
+                  {forecast.day.mintemp_c.toFixed(0)}°C -{" "}
                   {forecast.day.maxtemp_c.toFixed(0)}°C
                 </span>
               </div>

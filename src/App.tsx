@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Forecast } from "./components/Forecast";
 import { AppMain } from "./components/AppMain";
 import { Background } from "./components/Background";
+
 import "./App.css";
 
 function App() {
   const [showForecast, setShowForecast] = useState(false);
-  const [weatherData, setWeatherData] = useState();
+  const [weatherData, setWeatherData] = useState(Object);
   return (
     <>
       <Background />

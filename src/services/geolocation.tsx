@@ -37,7 +37,7 @@ export async function getUserLocation(): Promise<string> {
     );
   } catch (error) {
     // Throw an error if location retrieval fails
-    throw new Error("Failed to download your location");
+    throw new Error("Failed to get your location");
   }
 }
 
