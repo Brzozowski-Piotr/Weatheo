@@ -4,6 +4,8 @@ import { getUserLocation } from "../services/geolocation";
 import { autofill } from "../services/autofill";
 import { AutoFillItem } from "./types/WeatherTypes";
 
+import "../styles/AppMain.css";
+
 // Interface used to update showForecast useState in App.tsx to change displayed component
 
 /* Doing this way beacause is the easiest solution that comes to my head to prevent css animation 
@@ -140,12 +142,15 @@ export const AppMain: React.FC<AppMainProps> = ({
         </div>
 
         {isLoading ? (
-          <button className="button loadingButton" disabled={true}>
+          <button
+            className="loading button defaultLoadingButton"
+            disabled={true}
+          >
             Checking...
           </button>
         ) : (
           <button
-            className="button submitButton"
+            className="submit button defaultButton"
             onClick={() => handleWeatherFetch(placeValue)}
           >
             Check the weather

@@ -1,0 +1,92 @@
+.forecast {
+  display: inline;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.forecastHeader {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+}
+
+.temperature {
+  position: absolute;
+  margin-top: 110px;
+  margin-left: -5px;
+  min-width: 87px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.cityNameContainer {
+  position: absolute;
+  width: 94%;
+  height: 20%;
+  align-items: flex-start;
+}
+
+.cityName {
+  font-size: 2rem;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.rowDetailsMargin {
+  margin-top: 35px;
+}
+
+.rowForecastMargin {
+  margin-top: 24px;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.forecastText {
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.prognosisIconContainer {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -15%);
+}
+
+@media (max-width: 480px) {
+  .cityNameContainer {
+    position: relative;
+    width: 70%;
+  }
+
+  .cityName {
+    font-size: 1.6rem;
+  }
+}
+
+.weatherIconBig {
+  height: 64px;
+  width: 64px;
+}
+
+.weatherIconSmall {
+  height: 32px;
+  width: 32px;
+}

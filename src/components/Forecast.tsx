@@ -1,6 +1,8 @@
 import React from "react";
 import { WeatherData } from "./types/WeatherTypes";
+
 import "../App.css";
+import "../styles/Forecast.css";
 
 interface ForecastProps {
   setShowForecast: React.Dispatch<React.SetStateAction<boolean>>;
@@ -93,7 +95,10 @@ export const Forecast: React.FC<ForecastProps> = ({
             </div>
           ))}
         </div>
-        <button className="button submitButton" onClick={HandleBackButtonPress}>
+        <button
+          className="back button defaultButton"
+          onClick={HandleBackButtonPress}
+        >
           Back
         </button>
       </div>

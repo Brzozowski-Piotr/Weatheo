@@ -1,0 +1,15 @@
+:root {
+  /* Styles that is undepend of ui mode (light/dark mode) */
+
+  --font-arial-sans: Arial, sans-serif;
+  --second-text-size: 1rem;
+  --font-weight-bold: 600;
+
+  /* Styles that DEPENDS of ui mode (light mode) */
+
+  --color-pure: #fff;
+  --color-dimmed: #ccc;
+
+  --default-active-button-color: #38a3d1;
+  --default-busy-button-color: #38a3d180;
+}
