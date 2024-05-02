@@ -42,7 +42,7 @@ li:hover {
 }
 
 .divider {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid var(--divider-border-color);
   margin: 15px 0;
 }
 
@@ -64,7 +64,7 @@ li:hover {
 .logoStyling {
   margin-top: 0px;
   color: var(--color-pure);
-  text-shadow: 0px 0 black, 0 0px black, 0.5px 0 black, 0 -0.5px black;
+  text-shadow: var(--forecast-container-text-shadow);
 }
 
 .logoFullSize {
@@ -83,13 +83,14 @@ li:hover {
 
 .secondTextBold {
   font-size: var(--second-text-size);
-  color: rgba(0, 0, 0, 1);
+  color: var(--forecast-container-text-second-color);
   font-weight: var(--font-weight-bold);
+  text-shadow: 0px 0 black, 0 0.3px black, 0.3px 0 black, 0 -0.3px black;
 }
 
 .secondTextBoldDimmed {
   font-size: var(--second-text-size);
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--forecast-container-text-second-dimmed-color);
   font-weight: var(--font-weight-bold);
 }
 

@@ -5,11 +5,43 @@
   --second-text-size: 1rem;
   --font-weight-bold: 600;
 
-  /* Styles that DEPENDS of ui mode (light mode) */
-
   --color-pure: #fff;
   --color-dimmed: #ccc;
 
+  --forecast-container-text-color: #fff;
+  --forecast-container-text-second-color: #ffffff;
+
+  /* Styles that DEPENDS of ui mode (light mode) */
+
+  --container-color: #fff;
+  --container-border-color: #ccc;
+  --container-text-color: #000000;
+  --container-placeholder-color: #858585;
+
+  --forecast-container-color: #90dffeaa;
+  --forecast-container-text-second-dimmed-color: #ffffff;
+  --forecast-container-text-shadow: 0px 0 black, 0 0.1px black, 0.1px 0 black,
+    0 -0.1px black;
+
+  --divider-border-color: rgba(25, 169, 230, 0.502);
+
   --default-active-button-color: #38a3d1;
   --default-busy-button-color: #38a3d180;
+
+  /* Styles that DEPENDS of ui mode (dark mode) */
+
+  @media (prefers-color-scheme: dark) {
+    --container-color: #283e51;
+    --container-border-color: #393838;
+    --container-text-color: #fff;
+    --container-placeholder-color: #cbc6c6;
+
+    --forecast-container-color: #40607e80;
+    --forecast-container-text-second-dimmed-color: #ffffffb3;
+
+    --divider-border-color: #00000080;
+
+    --default-active-button-color: #2f5170;
+    --default-busy-button-color: #22627d7a;
+  }
 }
