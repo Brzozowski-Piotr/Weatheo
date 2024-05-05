@@ -10,5 +10,8 @@ export default defineConfig(({ mode }) => {
       "process.env.WEATHER_API_KEY": JSON.stringify(env.WEATHER_API_KEY),
     },
     plugins: [mkcert(), react()],
+    ssr: {
+      noExternal: true,
+    },
   };
 });
