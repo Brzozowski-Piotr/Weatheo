@@ -20,7 +20,7 @@ export const Forecast: React.FC<ForecastProps> = ({
     setShowForecast(false);
   };
 
-  //Event listener to detected pressing a esc key to get back to search page
+  // Event listener to detected pressing a esc key to get back to search page
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Escape") {

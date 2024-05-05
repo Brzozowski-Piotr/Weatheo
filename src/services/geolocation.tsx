@@ -1,3 +1,5 @@
+import { checkForLanguageDiacritic } from "./characterValidation";
+
 export async function getUserLocation(): Promise<string> {
   try {
     // Get the user's current position using the Geolocation API
@@ -10,31 +12,35 @@ export async function getUserLocation(): Promise<string> {
     const { latitude, longitude } = position.coords;
     // Fetch the name of the location based on latitude and longitude
     const location = await fetchLocationName(latitude, longitude);
-    // Replace Polish diacritic characters with their ASCII equivalents
-    return location.replace(
-      /[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g,
-      (match) =>
-        ({
-          ą: "a",
-          Ą: "A",
-          ć: "c",
-          Ć: "C",
-          ę: "e",
-          Ę: "E",
-          ł: "l",
-          Ł: "L",
-          ń: "n",
-          Ń: "N",
-          ó: "o",
-          Ó: "O",
-          ś: "s",
-          Ś: "S",
-          ź: "z",
-          Ź: "Z",
-          ż: "z",
-          Ż: "Z",
-        }[match] || match)
-    );
+
+    if (checkForLanguageDiacritic(location)) {
+      // Replace Polish diacritic characters with their ASCII equivalents
+      return location.replace(
+        /[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g,
+        (match) =>
+          ({
+            ą: "a",
+            Ą: "A",
+            ć: "c",
+            Ć: "C",
+            ę: "e",
+            Ę: "E",
+            ł: "l",
+            Ł: "L",
+            ń: "n",
+            Ń: "N",
+            ó: "o",
+            Ó: "O",
+            ś: "s",
+            Ś: "S",
+            ź: "z",
+            Ź: "Z",
+            ż: "z",
+            Ż: "Z",
+          }[match] || match)
+      );
+    }
+    return location;
   } catch (error) {
     // Throw an error if location retrieval fails
     throw new Error("Failed to get your location");
