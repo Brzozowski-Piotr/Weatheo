@@ -3,6 +3,7 @@ import { fetchWeatherData } from "../services/fetch";
 import { getUserLocation } from "../services/geolocation";
 import { autofill } from "../services/autofill";
 import { checkForLanguageDiacritic } from "../services/characterValidation";
+import { Footer } from "./Footer";
 import { AutoFillItem } from "./types/WeatherTypes";
 
 import "../styles/AppMain.css";
@@ -48,7 +49,7 @@ export const AppMain: React.FC<AppMainProps> = ({
   };
 
   const handleWeatherFetch = (place: string) => {
-    // Checking if input field is not empty or contains Polish diacritic
+    // Checking if input field is not empty or contains language diacritic
     if (place === "") {
       setError("The field must not be empty");
       return;
@@ -122,6 +123,9 @@ export const AppMain: React.FC<AppMainProps> = ({
           console.log(autoFill.data);
         }
       });
+    } else if (value.length < 3) {
+      setIsAutoFillVisable(false);
+      setAutoFill(null);
     }
   };
 
@@ -169,6 +173,7 @@ export const AppMain: React.FC<AppMainProps> = ({
             Check the weather
           </button>
         )}
+        <Footer />
         {autoFillVisable ? (
           <div className="autofillContainer">
             <div className="autofill">

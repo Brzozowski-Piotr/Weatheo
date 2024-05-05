@@ -4,6 +4,10 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+a {
+  color: var(--forecast-container-text-second-dimmed-color);
+}
+
 ul {
   margin: 0px 0px 10px 0px;
   padding: 0px 0px 0px 12px;
@@ -92,6 +96,11 @@ li:hover {
   font-size: var(--second-text-size);
   color: var(--forecast-container-text-second-dimmed-color);
   font-weight: var(--font-weight-bold);
+}
+
+.footerTextDimmed {
+  font-size: var(--footer-text-size);
+  color: var(--forecast-container-text-second-dimmed-color);
 }
 
 /* Buttons styling */
