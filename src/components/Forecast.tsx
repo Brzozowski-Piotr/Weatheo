@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { WeatherData } from "./types/WeatherTypes";
 
 import "../App.css";
@@ -19,6 +19,24 @@ export const Forecast: React.FC<ForecastProps> = ({
     setWeatherData(undefined);
     setShowForecast(false);
   };
+
+  //Event listener to detected pressing a esc key to get back to search page
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setWeatherData(undefined);
+        setShowForecast(false);
+      }
+    };
+
+    // Adding event listener
+    document.addEventListener("keydown", handleKeyPress);
+
+    // Removing event listener
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  });
 
   const getDayOfWeek = (dateString: string) => {
     const dateObj = new Date(dateString);
