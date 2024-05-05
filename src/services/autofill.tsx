@@ -5,7 +5,7 @@ export const autofill = async (place: string) => {
 
   try {
     const response = await fetch(url);
-    console.log("fetch-autofill:", place);
+    //console.log("fetch-autofill:", place);
     const autofillData = await response.json();
     return { data: autofillData }; // return data
   } catch (error) {

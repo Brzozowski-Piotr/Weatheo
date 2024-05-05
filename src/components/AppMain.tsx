@@ -78,13 +78,13 @@ export const AppMain: React.FC<AppMainProps> = ({
           return;
           // When null been provided from fetch then errer been displayed and other action been abandoned
         } else if (data.data === null) {
-          console.log("Fetching ended with null data", data);
+          //console.log("Fetching ended with null data", data);
           setIsLoading(false);
           setError("No weather data has been provided to be shown");
           return;
         }
         // When everything go well fetched data been showed
-        console.log("Fetched data succesfully", data.data);
+        //console.log("Fetched data succesfully", data.data);
         setWeatherData(data.data); //Set data provided from fetch to variable
         setIsLoading(false); // Set loading to false after fetching
         setShowForecast(true); //Set showForecast to true to show component "<Forecast />"" in App.tsx
@@ -100,7 +100,6 @@ export const AppMain: React.FC<AppMainProps> = ({
   //When user press enter while typing on input then fetch request been send (it's faster than clicking submitButton)
   const handleEnterKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      console.log(e);
       handleWeatherFetch(placeValue);
     }
   };
@@ -115,12 +114,12 @@ export const AppMain: React.FC<AppMainProps> = ({
         if (!data) {
           setIsAutoFillVisable(false);
           setAutoFill(null);
-          console.log(value);
+          //console.log(value);
         } else if (data.data.length > 0) {
-          console.log(value);
+          //console.log(value);
           setIsAutoFillVisable(true);
           setAutoFill(data);
-          console.log(autoFill.data);
+          //console.log(autoFill.data);
         }
       });
     } else if (value.length < 3) {
