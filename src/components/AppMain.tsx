@@ -100,6 +100,9 @@ export const AppMain: React.FC<AppMainProps> = ({
   //When user press enter while typing on input then fetch request been send (it's faster than clicking submitButton)
   const handleEnterKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
+      setIsAutoFillVisable(false);
+      setAutoFill(null);
+      setIsLoading(true);
       handleWeatherFetch(placeValue);
     }
   };
