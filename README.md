@@ -2,7 +2,15 @@
 
 **Created with React + TypeScript + Vite**
 
-## How to get started:
+## IMPORTANT
+
+This is my first solo project built in React with TypeScript and CSS. If you have any suggestions, please submit them as `Pull requests` to this repository! I would be very grateful 😄.
+
+## Demo
+
+[Click here to try out demo of my app 😊](https://jocular-khapse-e08177.netlify.app/)
+
+## How to setup project by my own:
 
 **1. Clone git repository**
 
@@ -77,7 +85,3 @@ npm run dev
 ```
 npm run build
 ```
-
-**<font color ="red">IMPORTANT</font>**
-
-This is my first solo project built in React with TypeScript and CSS. If you have any suggestions, please submit them as `Pull requests` to this repository! I would be very grateful 😄.
